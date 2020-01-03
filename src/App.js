@@ -9,22 +9,29 @@ class App extends Component {
     // super calls the crostructor method on the component and give us access to this state
     super();
       this.state = {
-        string: "Hello Ivandcs"
+        doggies: [
+          {
+            name: "Wooca",
+            id: "1"
+          },
+          {
+            name: "Sushi",
+            id: "1"
+          },
+          {
+            name: "Surimmi",
+            id: "1"
+          }
+        ]
       };
   }
   render () {
     return (
       <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          { this.state.string }
-        </p>
-        <button onClick={() => this.setState({ string: "Hello Carrillo" })}>
-          Change Text
-        </button>
-      </header>
-    </div>
+        {this.state.doggies.map(monster => (
+          <h1 key={monster.name}> {monster.name} </h1>
+        ))}
+      </div>
     );
   }
 }
