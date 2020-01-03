@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 //a class component allows you to display dinamic content
@@ -9,22 +8,19 @@ class App extends Component {
     // super calls the crostructor method on the component and give us access to this state
     super();
       this.state = {
-        doggies: [
-          {
-            name: "Wooca",
-            id: "1"
-          },
-          {
-            name: "Sushi",
-            id: "1"
-          },
-          {
-            name: "Surimmi",
-            id: "1"
-          }
-        ]
+        doggies: []
       };
   }
+  //renders component into dom/calls block of code
+  componentDidMount() {
+    //returns a promise
+    fetch("https:jsonplaceholder.typicode.com/users")
+      //returns response in json format for JS to understand
+      .then(response => response.json())
+      //returns new promise with body of users array/updates doggiesproperty with users array
+      .then(users => this.setState({ doggies: users }));
+  }
+  
   render () {
     return (
       <div className="App">
