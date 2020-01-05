@@ -4,9 +4,9 @@ import './App.css';
 
 //class component allows you to display dynamic content
 class App extends Component {
-  //state === object with properties that can br accesed from anywhere within the class
+  //state => object with properties that can br accesed from anywhere within the class
   constructor() {
-    // super calls the crostructor method on the component and give us access to this state
+    //super calls the crostructor method on the component and give us access to this state
     super();
       this.state = {
         monsters: []
@@ -25,10 +25,9 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <CardList name="Ivan"> 
-        {this.state.monsters.map(monster => (
-          <h1 key={monster.name}> {monster.name} </h1>
-        ))}
+        {/*props => parameter pass in CardList/logs out object of properties into component*/}
+        <CardList monsters={this.state.monsters}> 
+          
         </CardList>
       </div>
     );
