@@ -18,7 +18,7 @@ class App extends Component {
     fetch("https:jsonplaceholder.typicode.com/users")
       //returns response in json format for JS to understand
       .then(response => response.json())
-      //returns new promise with body of users array/updates monsters property with users array
+      //returns new promise with body of users arr/updates monsters property with users arr
       .then(users => this.setState({ monsters: users }));
   }
   
@@ -26,9 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         {/*props => parameter pass in CardList/logs out object of properties into component*/}
-        <CardList monsters={this.state.monsters}> 
-          
-        </CardList>
+        <CardList monsters={this.state.monsters} /> 
       </div>
     );
   }
