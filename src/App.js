@@ -9,7 +9,7 @@ class App extends Component {
     //super calls the crostructor method on the component and give us access to this state
     super();
       this.state = {
-        monsters: []
+        robots: []
       }; 
   }
   //renders component into dom/calls block of code
@@ -18,15 +18,15 @@ class App extends Component {
     fetch("https:jsonplaceholder.typicode.com/users")
       //returns response in json format for JS to understand
       .then(response => response.json())
-      //returns new promise with body of users arr/updates monsters property with users arr
-      .then(users => this.setState({ monsters: users }));
+      //returns new promise with body of users arr/updates robots property with users arr
+      .then(users => this.setState({ robots: users }));
   }
   
   render () {
     return (
       <div className="App">
         {/*props => parameter pass in CardList/logs out object of properties into component*/}
-        <CardList monsters={this.state.monsters} /> 
+        <CardList robots={this.state.robots} /> 
       </div>
     );
   }

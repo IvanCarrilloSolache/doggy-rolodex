@@ -9,8 +9,8 @@ export const CardList = props => (
     <div className= "card-list">
         {/*map returns the return of passed func iterated over every arr's element*/}
         {/*unique keys let React know what elements need update if arr's elements value changes */}
-        {props.monsters.map(monster => (
-            <Card key={monster.id} monster={monster} />
+        {props.robots.map(robot => (
+            <Card key={robot.id} robot={robot} />
         ))}
     </div>
 );
