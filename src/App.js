@@ -9,7 +9,8 @@ class App extends Component {
     //super calls the crostructor method on the component and give us access to this state
     super();
       this.state = {
-        robots: []
+        robots: [],
+        searchField: ""
       }; 
   }
   //renders component into dom/calls block of code
@@ -25,6 +26,8 @@ class App extends Component {
   render () {
     return (
       <div className="App">
+        {/*onChange fires syncteric event (e) when input value is change*/ }
+        <input type="search" placeholder="search robots" onChange={e => console.log(e.target.value)} />
         {/*props => parameter pass in CardList/logs out object of properties into component*/}
         <CardList robots={this.state.robots} /> 
       </div>
