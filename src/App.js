@@ -24,21 +24,24 @@ class App extends Component {
   }
   
   render () {
+    //distructuring allows to pull properties off of state/set them to constants inside bracket notation
+    const { robots, searchField } = this.state;
+    //filter method gets a new arr based on passed in function 
+    const filteredRobots = robots.filter(robot =>
+      //toLowecase allows search not to be caseSensative/includes checks string value is in the called string 
+      robot.name.toLowerCase().includes(searchField.toLowerCase())
+    );
     return (
       <div className="App">
         {/*onChange fires syncteric event (e) when input value is change*/ }
         <input 
           type="search" 
-          placeholder="search robots" 
-          onChange={e => {
-            {/*setState is asynchronous, second argument function allows to get response right after setting state*/}
-            this.setState({ searchField: e.target.value }, () =>
-              console.log(this.state)
-            );
-          }} 
+          placeholder="search robots"
+          /*setState is asynchronous, a second argument function allows to get response right after setting state*/
+          onChange={e => this.setState({ searchField: e.target.value })}
         />
         {/*props => parameter pass in CardList/logs out object of properties into component*/}
-        <CardList robots={this.state.robots} /> 
+        <CardList robots={filteredRobots} /> 
       </div>
     );
   }
