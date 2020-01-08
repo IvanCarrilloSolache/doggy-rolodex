@@ -27,7 +27,16 @@ class App extends Component {
     return (
       <div className="App">
         {/*onChange fires syncteric event (e) when input value is change*/ }
-        <input type="search" placeholder="search robots" onChange={e => console.log(e.target.value)} />
+        <input 
+          type="search" 
+          placeholder="search robots" 
+          onChange={e => {
+            {/*setState is asynchronous, second argument function allows to get response right after setting state*/}
+            this.setState({ searchField: e.target.value }, () =>
+              console.log(this.state)
+            );
+          }} 
+        />
         {/*props => parameter pass in CardList/logs out object of properties into component*/}
         <CardList robots={this.state.robots} /> 
       </div>
