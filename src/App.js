@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { CardList } from "./components/card-list/card-list.component";
+import { SearchBox } from "./components/search-box/search-box.component";
+
 import './App.css';
 
 //class component allows you to display dynamic content
@@ -34,11 +36,11 @@ class App extends Component {
     return (
       <div className="App">
         {/*onChange fires syncteric event (e) when input value is change*/ }
-        <input 
-          type="search" 
+      
+        <SearchBox 
           placeholder="search robots"
-          /*setState is asynchronous, a second argument function allows to get response right after setting state*/
-          onChange={e => this.setState({ searchField: e.target.value })}
+          /*setState is asynchronous, a second argument function allows to get response right after setting state*/          
+          handleChange={e => this.setState({ searchField: e.target.value })}
         />
         {/*props => parameter pass in CardList/logs out object of properties into component*/}
         <CardList robots={filteredRobots} /> 
