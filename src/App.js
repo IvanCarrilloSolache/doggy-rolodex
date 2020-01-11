@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         {/*onChange fires syncteric event (e) when input value is change*/ }
-      
+        <h1> Robots Rolodex </h1>
         <SearchBox 
           placeholder="search robots"
           /*setState is asynchronous, a second argument function allows to get response right after setting state*/          
